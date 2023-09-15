@@ -176,14 +176,12 @@ providers: [
 
   /**
    * set calendar opened date
+   * @param picker NgxMatDatetimepicker element ref
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
   public setOpenedDate(datePicker: any): void {
     const dateCtrl: FormControl = this.dateControl;
     dateCtrl.setValue(dateCtrl.value || new Date());
-    // eslint-disable-next-line no-underscore-dangle
     datePicker._selected = dateCtrl.value;
-    // eslint-disable-next-line no-underscore-dangle
     datePicker.startAt = datePicker._selected;
   }
 }
