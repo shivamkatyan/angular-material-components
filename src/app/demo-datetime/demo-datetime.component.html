@@ -26,7 +26,8 @@
           [color]="color"
           [enableMeridian]="enableMeridian"
           [disableMinute]="disableMinute"
-          [hideTime]="hideTime"
+          [hideTime]="hideTime",
+          (opened)="setOpenedDate(picker)"
         >
         </ngx-mat-datetime-picker>
       </mat-form-field>
@@ -294,7 +295,7 @@
         [color]="color"
         [enableMeridian]="enableMeridian"
         [disableMinute]="disableMinute"
-        [hideTime]="hideTime"
+        (opened)="setOpenedDate()"
       >
       </ngx-mat-datetime-picker>
     </mat-form-field>
