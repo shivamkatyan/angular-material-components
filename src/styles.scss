@@ -4,25 +4,30 @@
   background-color: white;
   color: rgba(0, 0, 0, 0.87);
 }
+
 .mat-calendar-table-header,
 .mat-calendar-body-label {
   color: rgba(0, 0, 0, 0.54);
 }
+
 .mat-calendar-table-header th {
   text-align: center;
   padding: 0 0 8px 0;
   font-size: 11px;
   font-weight: 400;
 }
+
 .mat-datepicker-toggle,
 .mat-datepicker-content .mat-calendar-next-button,
 .mat-datepicker-content .mat-calendar-previous-button {
   color: rgba(0, 0, 0, 0.54);
 }
+
 .mat-calendar-table-header th {
   text-align: center;
   padding: 0 0 8px 0;
 }
+
 .mat-calendar-body-label {
   height: 0;
   line-height: 0;
@@ -30,22 +35,27 @@
   padding-left: 4.7142857143%;
   padding-right: 4.7142857143%;
 }
+
 .mat-calendar-body-cell-content,
 .mat-date-range-input-separator {
   color: rgba(0, 0, 0, 0.87);
   border-color: transparent;
 }
+
 .mat-calendar-body-today.mat-calendar-body-selected {
   box-shadow: inset 0 0 0 1px white;
 }
+
 .mat-calendar-body-selected {
-  background-color: #019999;
+  background-color: $primary;
   color: white;
 }
+
 .mat-calendar-body-cell-content,
 .mat-date-range-input-separator {
   border-color: transparent;
 }
+
 .mat-calendar-table-header-divider::after {
   background: rgba(0, 0, 0, 0.12);
 }
@@ -53,6 +63,21 @@
 .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
   border-color: rgba(0, 0, 0, 0.38);
 }
-.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical):hover {
-  background-color: #019999;
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical):hover {
+  background-color: $primary;
+  opacity: 0.8;
+  color: white;
+}
+
+.mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  color: rgb(0 0 0 / 38%);
+}
+
+.month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.month-picker .mat-calendar-arrow {
+  display: none;
 }
