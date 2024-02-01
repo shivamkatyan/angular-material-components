@@ -1,16 +1,16 @@
 {
-  "name": "@angular-material-components/datetime-picker",
-  "version": "16.0.1",
-  "description": "Angular Material Datetime Picker",
-  "author": "HO Hong Quan",
+  "name": "@angular-material-components/datetime-picker-17",
+  "version": "17.0.0",
+  "description": "Angular Material Datetime Picker fork",
+  "author": "SK",
   "repository": {
     "type": "git",
-    "url": "https://github.com/h2qutc/angular-material-components.git"
+    "url": "https://github.com/shivamkatyan/angular-material-components"
   },
   "bugs": {
-    "url": "https://github.com/h2qutc/angular-material-components/issues"
+    "url": "https://github.com/shivamkatyan/angular-material-components/issues"
   },
-  "homepage": "https://github.com/h2qutc/angular-material-components",
+  "homepage": "https://github.com/shivamkatyan/angular-material-components",
   "keywords": [
     "angular",
     "angular2",
@@ -19,6 +19,7 @@
     "angular 14",
     "angular 15",
     "angular 16",
+    "angular 17",
     "angular-material",
     "angular material datetime picker",
     "angular material time picker",
@@ -27,8 +28,7 @@
     "timepicker",
     "ngx-mat",
     "ngx-mat-datetime-picker",
-    "ngx-material-datetime-picker",
-    "ngx-mat-timepicker"
+    "ngx-material-datetime-picker"
   ],
   "license": "MIT",
   "peerDependencies": {
