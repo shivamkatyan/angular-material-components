@@ -1,7 +1,7 @@
 {
-  "name": "@angular-material-components/datetime-picker-17",
+  "name": "@angular-material-components-skatyan/datetime-picker",
   "version": "17.0.0",
-  "description": "Angular Material Datetime Picker fork",
+  "description": "Angular Material Datetime Picker fork for Angular 17",
   "author": "SK",
   "repository": {
     "type": "git",
