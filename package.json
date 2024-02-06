@@ -1,5 +1,5 @@
 {
-  "name": "angular-material-components-skatyan",
+  "name": "katyan",
   "version": "17.0.0",
   "description": "Angular Material Datetime Picker on angular 17",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build -c=production",
     "build:datetime-picker": "ng build NgxMatDatetimePicker",
-    "publish:datetime-picker": "ng build NgxMatDatetimePicker && cd dist/@angular-material-components-skatyan/datetime-picker && npm publish --access public && cd .. && cd .. && cd ..",
+    "publish:datetime-picker": "ng build NgxMatDatetimePicker && cd dist/@katyan/datetime-picker && npm publish --access public && cd .. && cd .. && cd ..",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
