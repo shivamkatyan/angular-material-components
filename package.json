@@ -1,7 +1,7 @@
 {
   "name": "katyan",
-  "version": "17.0.0",
-  "description": "Angular Material Datetime Picker on angular 17",
+  "version": "18.0.0",
+  "description": "Angular Material Datetime Picker on angular 18",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
