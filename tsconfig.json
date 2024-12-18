@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "declaration": false,
     "module": "esnext",
     "moduleResolution": "node",
