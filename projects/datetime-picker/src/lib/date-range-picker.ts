@@ -1,7 +1,11 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
-import {NgxMatDatepickerBase, NgxMatDatepickerContent, NgxMatDatepickerControl} from './datepicker-base';
-import {NGX_MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER, NgxDateRange} from './date-selection-model';
-import {NGX_MAT_CALENDAR_RANGE_STRATEGY_PROVIDER} from './date-range-selection-strategy';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { NGX_MAT_CALENDAR_RANGE_STRATEGY_PROVIDER } from './date-range-selection-strategy';
+import { NGX_MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER, NgxDateRange } from './date-selection-model';
+import {
+  NgxMatDatepickerBase,
+  NgxMatDatepickerContent,
+  NgxMatDatepickerControl,
+} from './datepicker-base';
 
 /**
  * Input that can be associated with a date range picker.
@@ -19,17 +23,17 @@ export interface NgxMatDateRangePickerInput<D> extends NgxMatDatepickerControl<D
 // directive if angular adds support for `exportAs: '$implicit'` on directives.
 /** Component responsible for managing the date range picker popup/dialog. */
 @Component({
-    selector: 'ngx-mat-date-range-picker',
-    template: '',
-    exportAs: 'ngxMatDateRangePicker',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None,
-    providers: [
-        NGX_MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER,
-        NGX_MAT_CALENDAR_RANGE_STRATEGY_PROVIDER,
-        { provide: NgxMatDatepickerBase, useExisting: NgxMatDateRangePicker },
-    ],
-    standalone: false
+  selector: 'ngx-mat-date-range-picker',
+  template: '',
+  exportAs: 'ngxMatDateRangePicker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  providers: [
+    NGX_MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER,
+    NGX_MAT_CALENDAR_RANGE_STRATEGY_PROVIDER,
+    { provide: NgxMatDatepickerBase, useExisting: NgxMatDateRangePicker },
+  ],
+  standalone: true,
 })
 export class NgxMatDateRangePicker<D> extends NgxMatDatepickerBase<
   NgxMatDateRangePickerInput<D>,

@@ -1,16 +1,16 @@
 {
-  "name": "@katyan/datetime-picker",
-  "version": "18.0.1",
-  "description": "Angular Material Datetime Picker fork for Angular 18",
-  "author": "SK",
+  "name": "@ngxmc/datetime-picker",
+  "version": "19.1.0",
+  "description": "Angular Material Datetime Picker",
+  "author": "HO Hong Quan",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shivamkatyan/angular-material-components"
+    "url": "https://github.com/GNURub/angular-material-components.git"
   },
   "bugs": {
-    "url": "https://github.com/shivamkatyan/angular-material-components/issues"
+    "url": "https://github.com/GNURub/angular-material-components/issues"
   },
-  "homepage": "https://github.com/shivamkatyan/angular-material-components",
+  "homepage": "https://github.com/GNURub/angular-material-components",
   "keywords": [
     "angular",
     "angular2",
@@ -20,6 +20,8 @@
     "angular 15",
     "angular 16",
     "angular 17",
+    "angular 18",
+    "angular 19",
     "angular-material",
     "angular material datetime picker",
     "angular material time picker",
@@ -28,15 +30,16 @@
     "timepicker",
     "ngx-mat",
     "ngx-mat-datetime-picker",
-    "ngx-material-datetime-picker"
+    "ngx-material-datetime-picker",
+    "ngx-mat-timepicker"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/platform-browser": "^18.2.13",
-    "@angular/cdk": "^18.2.14",
-    "@angular/common": "^18.2.13",
-    "@angular/core": "^18.2.13",
-    "@angular/forms": "^18.2.13",
-    "@angular/material": "^18.2.14"
+    "@angular/cdk": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0"
   }
 }
