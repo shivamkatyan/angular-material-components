@@ -1,6 +1,6 @@
 {
   "name": "@katyan/datetime-picker",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "description": "Angular Material Datetime Picker",
   "author": "shivam",
   "repository": {
@@ -22,6 +22,7 @@
     "angular 17",
     "angular 18",
     "angular 19",
+    "angular 20",
     "angular-material",
     "angular material datetime picker",
     "angular material time picker",
