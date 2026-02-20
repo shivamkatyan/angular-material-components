@@ -5,45 +5,23 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es5",
-      "es2015",
-      "dom"
-    ],
-    "types": [
-      "node"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["ES2022", "dom"],
+    "types": ["node"],
     "paths": {
-      "@angular-material-components/*": [
-        "dist/@angular-material-components/*"
-      ],
-      "@angular-material-components/color-picker": [
-        "dist/@angular-material-components/color-picker"
-      ],
-      "@angular-material-components/color-picker/*": [
-        "dist/@angular-material-components/color-picker/*"
-      ],
-      "@angular-material-components/datetime-picker": [
-        "dist/@angular-material-components/datetime-picker"
-      ],
-      "@angular-material-components/datetime-picker/*": [
-        "dist/@angular-material-components/datetime-picker/*"
-      ],
-      "file-input": [
-        "dist/file-input"
-      ],
-      "file-input/*": [
-        "dist/file-input/*"
-      ]
+      "@katyan/*": ["dist/@katyan/*"],
+      "@katyan/color-picker": ["dist/@katyan/color-picker"],
+      "@katyan/color-picker/*": ["dist/@katyan/color-picker/*"],
+      "@katyan/datetime-picker": ["dist/@katyan/datetime-picker"],
+      "@katyan/datetime-picker/*": ["dist/@katyan/datetime-picker/*"],
+      "file-input": ["dist/file-input"],
+      "file-input/*": ["dist/file-input/*"]
     },
     "useDefineForClassFields": false
   }

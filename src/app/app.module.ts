@@ -18,6 +18,18 @@ const appRoutes: Routes = [
       path: 'datetimepicker',
       loadChildren: () => import('./demo-datetime/demo-datetime.module').then(m => m.DemoDatetimeModule)
    },
+   {
+      path: 'timepicker',
+      loadChildren: () => import('./demo-time/demo-time.module').then(m => m.DemoTimeModule)
+   },
+   {
+      path: 'colorpicker',
+      loadChildren: () => import('./demo-colorpicker/demo-colorpicker.module').then(m => m.DemoColorpickerModule)
+   },
+   {
+      path: 'fileinput',
+      loadChildren: () => import('./demo-fileinput/demo-fileinput.module').then(m => m.DemoFileInputModule)
+   },
    { path: '', redirectTo: '/home', pathMatch: 'full' },
    { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ]
@@ -38,10 +50,6 @@ const appRoutes: Routes = [
 export class AppRoutingModule { }
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      HomeComponent
-   ],
    imports: [
       BrowserModule,
       HttpClientModule,
@@ -52,7 +60,9 @@ export class AppRoutingModule { }
       MatToolbarModule,
       MatIconModule,
       MatListModule,
-      MatCardModule
+      MatCardModule,
+      AppComponent,
+      HomeComponent
    ],
    bootstrap: [
       AppComponent
