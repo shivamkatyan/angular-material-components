@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,18 +17,6 @@ const appRoutes: Routes = [
    {
       path: 'datetimepicker',
       loadChildren: () => import('./demo-datetime/demo-datetime.module').then(m => m.DemoDatetimeModule)
-   },
-   {
-      path: 'timepicker',
-      loadChildren: () => import('./demo-time/demo-time.module').then(m => m.DemoTimeModule)
-   },
-   {
-      path: 'colorpicker',
-      loadChildren: () => import('./demo-colorpicker/demo-colorpicker.module').then(m => m.DemoColorpickerModule)
-   },
-   {
-      path: 'fileinput',
-      loadChildren: () => import('./demo-fileinput/demo-fileinput.module').then(m => m.DemoFileInputModule)
    },
    { path: '', redirectTo: '/home', pathMatch: 'full' },
    { path: '**', redirectTo: '/home', pathMatch: 'full' }
@@ -49,23 +37,19 @@ const appRoutes: Routes = [
 })
 export class AppRoutingModule { }
 
-@NgModule({
-   imports: [
-      BrowserModule,
-      HttpClientModule,
-      BrowserAnimationsModule,
-      AppRoutingModule,
-      MatButtonModule,
-      MatSidenavModule,
-      MatToolbarModule,
-      MatIconModule,
-      MatListModule,
-      MatCardModule,
-      AppComponent,
-      HomeComponent
-   ],
-   bootstrap: [
-      AppComponent
-   ]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    bootstrap: [
+        AppComponent
+    ], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        MatCardModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

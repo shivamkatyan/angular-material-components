@@ -1,46 +1,12 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { ThemePalette } from "@angular/material/core";
-import { MatTabsModule } from "@angular/material/tabs";
-import { MatCardModule } from "@angular/material/card";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import { MatButtonModule } from "@angular/material/button";
-import { MatRadioModule } from "@angular/material/radio";
-import { MatSelectModule } from "@angular/material/select";
-import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatIconModule } from "@angular/material/icon";
-import {
-  NgxMatDatetimePickerModule,
-  NgxMatNativeDateModule,
-  NgxMatTimepickerModule,
-} from "../../../projects/datetime-picker/src/public-api";
-import { SharedModule } from "../shared";
 
 @Component({
-  selector: "app-demo-datetime",
-  templateUrl: "./demo-datetime.component.html",
-  styleUrls: ["./demo-datetime.component.scss"],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatTabsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatIconModule,
-    NgxMatDatetimePickerModule,
-    NgxMatNativeDateModule,
-    NgxMatTimepickerModule,
-    SharedModule,
-  ],
+    selector: "app-demo-datetime",
+    templateUrl: "./demo-datetime.component.html",
+    styleUrls: ["./demo-datetime.component.scss"],
+    standalone: false
 })
 export class DemoDatetimeComponent implements OnInit {
   @ViewChild("picker", { static: true }) picker: any;
@@ -59,8 +25,9 @@ export class DemoDatetimeComponent implements OnInit {
   public disableMinute = false;
   public hideTime = false;
 
-  public dateControl = new FormControl(new Date());
+  public dateControl = new FormControl(null);
 
+  startATdate = new Date();
   public options = [
     { value: true, label: "True" },
     { value: false, label: "False" },
@@ -72,7 +39,8 @@ export class DemoDatetimeComponent implements OnInit {
   public stepMinutes = [1, 5, 10, 15, 20, 25];
   public stepSeconds = [1, 5, 10, 15, 20, 25];
 
-  public code1 = "npm install --save @katyan/datetime-picker";
+  public code1 =
+    "npm install --save @angular-material-components/datetime-picker";
 
   public code3 = `<mat-form-field>
   <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" [formControl]="dateControl"
@@ -88,7 +56,7 @@ export class DemoDatetimeComponent implements OnInit {
            NgxMatDatetimePickerModule, 
            NgxMatNativeDateModule, 
            NgxMatTimepickerModule 
-  } from '@katyan/datetime-picker';
+  } from '@angular-material-components/datetime-picker';
   
 @NgModule({
   imports: [
@@ -100,7 +68,8 @@ export class DemoDatetimeComponent implements OnInit {
   ]
 })
 export class AppModule { }`;
-  public code4 = "npm install --save  @katyan/moment-adapter";
+  public code4 =
+    "npm install --save  @angular-material-components/moment-adapter";
   public code5 = `@Injectable()
 export class CustomDateAdapter extends NgxMatDateAdapter<D> {...}
 // D can be Date, Moment or customized type`;
@@ -204,5 +173,16 @@ providers: [
     const now = new Date();
     this.maxDate = new Date();
     this.maxDate.setDate(now.getDate() + 1);
+  }
+
+  /**
+   * set calendar opened date
+   * @param picker NgxMatDatetimepicker element ref
+   */
+  public setOpenedDate(datePicker: any): void {
+    const dateCtrl: FormControl = this.dateControl;
+    dateCtrl.setValue(dateCtrl.value || new Date());
+    datePicker._selected = dateCtrl.value;
+    datePicker.startAt = datePicker._selected;
   }
 }

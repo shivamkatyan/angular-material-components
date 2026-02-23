@@ -38,6 +38,10 @@ $inputWidth: 24px;
               .mat-icon {
                 font-size: $fontSizeIcon;
               }
+
+              &:disabled svg {
+                stroke: var(--mat-icon-button-disabled-icon-color);
+              }
             }
 
             .mat-mdc-form-field {

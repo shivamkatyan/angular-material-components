@@ -1,26 +1,29 @@
-
-
+import { TemplatePortal } from '@angular/cdk/portal';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Directive,
+  Input,
   OnDestroy,
   TemplateRef,
-  ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
+  booleanAttribute,
+  viewChild,
 } from '@angular/core';
-import {TemplatePortal} from '@angular/cdk/portal';
-import {NgxMatDatepickerBase, NgxMatDatepickerControl} from './datepicker-base';
+import { NgxMatDatepickerBase, NgxMatDatepickerControl } from './datepicker-base';
 
 /** Button that will close the datepicker and assign the current selection to the data model. */
 @Directive({
   selector: '[ngxMatDatepickerApply], [ngxMatDateRangePickerApply]',
-  host: {'(click)': '_applySelection()'},
+  host: { '(click)': '_applySelection()' },
+  standalone: true,
 })
 export class NgxMatDatepickerApply {
-  constructor(private _datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<any>, unknown>) {}
+  constructor(
+    public readonly _datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<any>, unknown>,
+  ) {}
 
   _applySelection() {
     this._datepicker._applyPendingSelection();
@@ -28,13 +31,39 @@ export class NgxMatDatepickerApply {
   }
 }
 
+@Directive({
+  selector: '[ngxMatDatepickerClear], [ngxMatDateRangePickerClear]',
+  host: { '(click)': '_clearSelection()' },
+  standalone: true,
+})
+export class NgxMatDatepickerClear {
+  constructor(
+    public readonly _datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<any>, unknown>,
+  ) {}
+
+  @Input({
+    transform: booleanAttribute,
+  })
+  close: boolean = false;
+
+  _clearSelection() {
+    this._datepicker._clearSelection();
+    if (this.close) {
+      this._datepicker.close();
+    }
+  }
+}
+
 /** Button that will close the datepicker and discard the current selection. */
 @Directive({
   selector: '[ngxMatDatepickerCancel], [ngxMatDateRangePickerCancel]',
-  host: {'(click)': '_datepicker.close()'},
+  host: { '(click)': '_datepicker.close()' },
+  standalone: true,
 })
 export class NgxMatDatepickerCancel {
-  constructor(public _datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<any>, unknown>) {}
+  constructor(
+    public readonly _datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<any>, unknown>,
+  ) {}
 }
 
 /**
@@ -53,9 +82,10 @@ export class NgxMatDatepickerCancel {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class NgxMatDatepickerActions implements AfterViewInit, OnDestroy {
-  @ViewChild(TemplateRef) _template: TemplateRef<unknown>;
+  _template = viewChild<TemplateRef<unknown>>(TemplateRef);
   private _portal: TemplatePortal;
 
   constructor(
@@ -64,7 +94,7 @@ export class NgxMatDatepickerActions implements AfterViewInit, OnDestroy {
   ) {}
 
   ngAfterViewInit() {
-    this._portal = new TemplatePortal(this._template, this._viewContainerRef);
+    this._portal = new TemplatePortal(this._template(), this._viewContainerRef);
     this._datepicker.registerActions(this._portal);
   }
 
